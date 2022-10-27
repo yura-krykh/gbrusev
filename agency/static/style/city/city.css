@@ -1,0 +1,72 @@
+
+figure {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 20px;
+}
+figure img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+
+figure:hover img {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.Samara figure:hover img {
+    -webkit-transform: scale(40);
+    transform: scale(40);
+}
+
+.column{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    row-gap: 50px;
+    justify-content: space-between;
+}
+
+.column div {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.column div span {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    color: #444;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: center;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.column::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+figure:hover + span {
+    bottom: -36px;
+    opacity: 1;
+}
+
+.container{
+    padding-bottom: 30px;
+}

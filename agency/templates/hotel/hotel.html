@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" href="{% static 'style/hotel/hotel.css' %}">
+    </head>
+    <div class="container">
+        <p><a href="{% url 'home' %}">На главную</a>/Отели</p>
+        <div>
+            {% for city in object_list %}
+                <article>
+                    <h2>{{ city.name}}</h2>
+                    <div>
+                        {% for hotel in city.get_hotels %}
+
+                        
+                            <a href="">{{ hotel.name }}</a>
+                        {% endfor %}
+                    </div>
+                </article>
+                {% comment %} <div>
+                    <a href=" ">
+                        <figure class="figure-city"><img src="{{ hotel.photo.url }}" width="300" height="200" alt='{{ hotel.name }}'/></figure>
+                        <span>{{ hotel.name }}</span>
+                    </a> {% endcomment %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

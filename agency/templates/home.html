@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1>Турагенство РомаТур</h1>
+        <p>Лучшие туры по низким ценам</p>
+    </div>
+    <article>
+        <div class="container">
+            <h2>Города</h2>
+            {% for city in city_list %}
+                <a href="{% url 'city_detail' city.pk %}">{{ city.name }}</a>
+            {% endfor %}
+            <h2>Отели</h2>
+            {% for item in hotel %}
+                <a href="">{{ item.name }}</a>
+            {% endfor %}
+        </div>
+    </article>
+{% endblock content %}
+{% comment %} {% url 'city_detail' city.pk %} {% endcomment %}

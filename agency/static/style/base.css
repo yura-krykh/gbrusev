@@ -1,0 +1,121 @@
+@font-face {
+    font-family: "CascadiaCode";
+    src: url("../fonts/CascadiaCodePL-Regular.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "CascadiaCode";
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+hr {
+    margin: 20px 0;
+    padding: 0;
+    height: 0;
+    border: none;
+    border-top: 1px solid black;
+}
+
+header {
+    margin-top: 20px;
+}
+header .head-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header nav {
+    width: 70%;
+    font-size: 36px;
+    line-height: 42px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+header nav a {
+    display: inline-block; /*делаем чтобы наша ссылка из строчного элемента превратилась в строчно-блочный*/
+    line-height: 1; /*Задаём высоту строки (можно в пикселях)*/
+}
+header nav a:after {
+    display: block; /*превращаем его в блочный элемент*/
+    content: ""; /*контента в данном блоке не будет поэтому в кавычках ничего не ставим*/
+    height: 3px; /*задаём высоту линии*/
+    width: 0%; /*задаём начальную ширину элемента (линии)*/
+    background-color: #ffd700; /*цвет фона элемента*/
+    transition: width 0.4s ease-in-out; /*данное свойство отвечает за плавное изменение ширины. Здесь можно задать время анимации в секундах (в данном случае задано 0.4 секунды)*/
+}
+header nav a:hover:after, header nav a:focus:after {
+    width: 100%;
+}
+header .round {
+    animation-name: rotation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+header .logo {
+    width: 150px;
+    height: 150px;
+    background-image: url('../img/logo/ru-logo.svg');
+    background-repeat: no-repeat;
+    background-size: 100px auto;
+    background-position: center;
+}
+
+figure:hover + span {
+    bottom: -36px;
+    opacity: 1;
+}
+
+footer a {
+    display: inline-block; /*делаем чтобы наша ссылка из строчного элемента превратилась в строчно-блочный*/
+    line-height: 1; /*Задаём высоту строки (можно в пикселях)*/
+}
+footer a:after {
+    display: block; /*превращаем его в блочный элемент*/
+    content: ""; /*контента в данном блоке не будет поэтому в кавычках ничего не ставим*/
+    height: 3px; /*задаём высоту линии*/
+    width: 0%; /*задаём начальную ширину элемента (линии)*/
+    background-color: #ffd700; /*цвет фона элемента*/
+    transition: width 0.4s ease-in-out; /*данное свойство отвечает за плавное изменение ширины. Здесь можно задать время анимации в секундах (в данном случае задано 0.4 секунды)*/
+}
+footer a:hover:after, footer a:focus:after {
+    width: 100%;
+}
+
+footer .row-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(1, auto);
+    justify-items: stretch;
+    align-items: center;
+}
+
+footer .company {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

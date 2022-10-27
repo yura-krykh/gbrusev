@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" href="{% static 'style/city/city.css' %}">
+    </head>
+    <div class="container">
+        <p><a href="{% url 'home' %}">На главную</a>/города</p>
+        <div class="column">
+            {% for city in city_list %}
+                <div>
+                    <a href="{% url 'city_detail' city.pk %}">
+                        <figure class="figure-city"><img src="{{ city.photo.url }}" width="300" height="200" alt='{{ city.name }}'/></figure>
+                        <span>{{ city.name }}</span>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

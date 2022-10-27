@@ -1,0 +1,23 @@
+main img {
+    width: 1200px;
+    height: auto;
+}
+
+main h2{
+    text-align: center;
+}
+
+main p{
+    text-indent: 3em;
+    text-align:justify;
+}
+
+main .title{
+    background: white;
+    width: 700px;
+    padding: 50px;
+    height: 100px;
+    margin: -100px auto 0 auto;
+    position: relative;
+    box-shadow: -1px 5px 5px rgb(20 14 5 / 10%);
+}

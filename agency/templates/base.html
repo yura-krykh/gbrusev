@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{% block title %}РОМАТУР{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'style/base.css'%}">
+    <meta charset="utf-8" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="head-nav">
+                <div class="logo">
+                    <img width="150" height="150" class="round" src="{% static 'img/logo/img-logo.svg' %}" alt=""/>
+                </div>
+                <nav>
+                    <a href="{% url 'hotel' %}">Отели</a>
+                    <a href="#">Акции</a>
+                    <a href="#">Туры</a>
+                    <a href="{% url 'city' %}">Города</a>
+                    <a href="#contact" class="scroll-to">Контакты</a>
+                </nav>
+            </div>
+            <hr>
+        </div>
+    </header>
+    <main>
+        {% block content%}
+        {% endblock %}
+    </main>
+    <footer>
+        <div class="container">
+            <hr>
+            <div class="row">
+                <div class="row-grid" id="contact">
+                    <div >
+                        <p>
+                            <b>Телефон:</b>
+                            <a href="tel:+79326134383">+ 7 (932) 613 43 83</a>
+                        </p>
+                        <p>
+                            <b>Почта:</b>
+                            <a href="mailto:rss00@yandex.ru">rss00@yandex.ru</a>
+                        </p>
+                        <p>
+                            <b>Адрес:</b>
+                            620075 г. Екатеринбург ул.Белинского, 34 оф.203
+                        </p>
+                    </div>
+                    <div>
+                        <img src="{% static 'img/logo/logo.svg' %}" alt="" width="90" height="90">
+                        <big>Наша компания оказывает услуги по оформлению туров по всей России с 2003 года. За это время мы помогли оформить более 100000 виз.</big>
+                    </div>
+                </div>
+                <div class="company">
+                    <p>Компания «РОМАТУР» &copy; 2003 - 2022 г.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
