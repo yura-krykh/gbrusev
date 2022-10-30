@@ -23,3 +23,7 @@ class CityDetailView(DetailView):
 class HotelListView(ListView):
     model = City
     template_name = 'hotel\hotel.html'
+
+class HotelDetailView(DetailView):
+    model = hotel
+    template_name = 'hotel\hotel_detail.html'

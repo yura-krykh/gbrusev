@@ -8,6 +8,7 @@ urlpatterns = [
     path('city/', views.CityListView.as_view(), name='city'),
     path('city/<int:pk>/', views.CityDetailView.as_view(), name='city_detail'),
     path('hotel/', views.HotelListView.as_view(), name='hotel'),
+    path('hotel/<int:pk>/', views.HotelDetailView.as_view(), name='hotel_detail'),
 ]
 
 if settings.DEBUG:

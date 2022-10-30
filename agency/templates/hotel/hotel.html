@@ -11,21 +11,17 @@
             {% for city in object_list %}
                 <article>
                     <h2>{{ city.name}}</h2>
-                    <div>
+                    <div class="owl-carousel">
                         {% for hotel in city.get_hotels %}
-
-                        
-                            <a href="">{{ hotel.name }}</a>
+                            <a href="{% url 'hotel_detail' hotel.pk %}">
+                                <img src="{{ hotel.photo.url }}" alt="{{ hotel.name }}"  width="300" height="200">
+                                <p>{{ hotel.name }}</p>
+                            </a>
                         {% endfor %}
                     </div>
                 </article>
-                {% comment %} <div>
-                    <a href=" ">
-                        <figure class="figure-city"><img src="{{ hotel.photo.url }}" width="300" height="200" alt='{{ hotel.name }}'/></figure>
-                        <span>{{ hotel.name }}</span>
-                    </a> {% endcomment %}
-                </div>
             {% endfor %}
         </div>
     </div>
+
 {% endblock content %}
