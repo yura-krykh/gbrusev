@@ -14,9 +14,8 @@
             {% endfor %}
             <h2>Отели</h2>
             {% for item in hotel %}
-                <a href="">{{ item.name }}</a>
+                <a href="{% url 'hotel_detail' item.pk %}">{{ item.name }}</a>
             {% endfor %}
         </div>
     </article>
 {% endblock content %}
-{% comment %} {% url 'city_detail' city.pk %} {% endcomment %}
