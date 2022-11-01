@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.urls import reverse
 
@@ -28,3 +29,15 @@ class hotel(models.Model):
 
     def __str__(self):
         return self.name
+
+class tour(models.Model):
+    name = models.CharField(max_length=50)
+    photo = models.ImageField(upload_to='img/tour/')
+    body = models.TextField(max_length=200)
+    event = models.BooleanField(default=False)
+    cost = models.DecimalField(max_digits=7, decimal_places=2)
+    hotelName = models.ForeignKey(
+        hotel,
+        on_delete=models.CASCADE,
+        related_name="tour",
+    )
