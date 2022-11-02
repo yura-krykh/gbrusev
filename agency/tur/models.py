@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 from django.urls import reverse
 
@@ -41,3 +40,6 @@ class tour(models.Model):
         on_delete=models.CASCADE,
         related_name="tour",
     )
+
+    def __str__(self):
+        return self.name
