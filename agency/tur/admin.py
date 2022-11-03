@@ -11,3 +11,4 @@ class CityAdmin(admin.ModelAdmin):
 
 admin.site.register(models.City, CityAdmin)
 admin.site.register(models.hotel)
+admin.site.register(models.tour)
