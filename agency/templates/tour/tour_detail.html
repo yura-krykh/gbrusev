@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" href="{% static 'style/city/city_detail.css' %}">
+    </head>
+    <div class="container">
+        <p><a href="{% url 'home' %}">На главную</a>/<a href="{% url 'tour' %}">Туры</a>/{{ tour.name }}</p>
+        <article>
+            <img src="{{ tour.photo.url }}" alt="{{ tour.name }}">
+            <div class="title">
+                <h2>{{ tour.name }}</h2>
+                <p>{{ tour.body }}</p>
+            </div>
+        </article>
+    </div>
+{% endblock content %}

@@ -14,11 +14,33 @@
                     <img width="150" height="150" class="round" src="{% static 'img/logo/img-logo.svg' %}" alt=""/>
                 </div>
                 <nav>
-                    <a href="{% url 'hotel' %}">Отели</a>
-                    <a href="#">Акции</a>
-                    <a href="#">Туры</a>
+                    <ul class="topmenu">
+                        <li><a href="{% url 'hotel' %}">Отели</a></li>
+                        <li><a href="{% url 'acton' %}">Акции</a></li>
+                        <li><a href="{% url 'tour' %}">Туры</a></li>
+                        <li><a href="{% url 'city' %}">Города</a></li>
+                        <li class="drop">
+                            <img width="45" height="45" src="{% static 'img/account_avatar_face_man_people_profile_user_icon.svg' %}" alt="Пользователь">
+                            <ul class="submenu">
+                                <li><a href="">Войти</a></li>
+                                <li><a href="">Регистрация</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    {% comment %} <a href="{% url 'hotel' %}">Отели</a>
+                    <a href="{% url 'acton' %}">Акции</a>
+                    <a href="{% url 'tour' %}">Туры</a>
                     <a href="{% url 'city' %}">Города</a>
                     <a href="#contact" class="scroll-to">Контакты</a>
+                    <div class="topmenu">
+                        <img width="45" height="45" src="{% static 'img/account_avatar_face_man_people_profile_user_icon.svg' %}" alt="Пользователь">
+                        <ul class="submenu">
+                            <li><a href="">Войти</a></li>
+                            <li><a href="">Регистрaция</a></li>
+                        </ul>
+                    </div> {% endcomment %}
+                    {% comment %} <a><img width="45" height="45" src="{% static 'img/account_avatar_face_man_people_profile_user_icon.svg' %}" alt="Пользователь"></a> {% endcomment %}
+                    
                 </nav>
             </div>
             <hr>

@@ -51,9 +51,6 @@ header nav {
     width: 70%;
     font-size: 36px;
     line-height: 42px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 header nav a {
     display: inline-block; /*делаем чтобы наша ссылка из строчного элемента превратилась в строчно-блочный*/
@@ -83,6 +80,46 @@ header .logo {
     background-repeat: no-repeat;
     background-size: 100px auto;
     background-position: center;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+header .topmenu li {
+    display: inline-block;
+    position: relative;
+    background-color: white;
+}
+
+header .submenu {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}
+
+header .submenu {
+    visibility: hidden;
+    opacity: 0;
+}
+
+header .drop:hover .submenu {
+    visibility: visible;
+    opacity: 1;
 }
 
 figure:hover + span {
