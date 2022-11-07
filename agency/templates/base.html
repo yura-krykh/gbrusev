@@ -22,25 +22,16 @@
                         <li class="drop">
                             <img width="45" height="45" src="{% static 'img/account_avatar_face_man_people_profile_user_icon.svg' %}" alt="Пользователь">
                             <ul class="submenu">
-                                <li><a href="">Войти</a></li>
-                                <li><a href="">Регистрация</a></li>
+                                {% if user.is_authenticated %}
+                                    <li>Привет {{ user.email }}</li>
+                                    <li><a href="{% url 'logout' %}">Выйти</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'login' %}">Войти</a></li>
+                                    <li><a href="{% url 'signup' %}">Регистрация</a></li>
+                                {% endif %}
                             </ul>
                         </li>
                     </ul>
-                    {% comment %} <a href="{% url 'hotel' %}">Отели</a>
-                    <a href="{% url 'acton' %}">Акции</a>
-                    <a href="{% url 'tour' %}">Туры</a>
-                    <a href="{% url 'city' %}">Города</a>
-                    <a href="#contact" class="scroll-to">Контакты</a>
-                    <div class="topmenu">
-                        <img width="45" height="45" src="{% static 'img/account_avatar_face_man_people_profile_user_icon.svg' %}" alt="Пользователь">
-                        <ul class="submenu">
-                            <li><a href="">Войти</a></li>
-                            <li><a href="">Регистрaция</a></li>
-                        </ul>
-                    </div> {% endcomment %}
-                    {% comment %} <a><img width="45" height="45" src="{% static 'img/account_avatar_face_man_people_profile_user_icon.svg' %}" alt="Пользователь"></a> {% endcomment %}
-                    
                 </nav>
             </div>
             <hr>
