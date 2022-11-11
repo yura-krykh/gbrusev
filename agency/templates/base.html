@@ -23,7 +23,7 @@
                             <img width="45" height="45" src="{% static 'img/account_avatar_face_man_people_profile_user_icon.svg' %}" alt="Пользователь">
                             <ul class="submenu">
                                 {% if user.is_authenticated %}
-                                    <li>Привет {{ user.email }}</li>
+                                    <li><a href="{% url 'profile' user.pk %}">Профиль</a></li>
                                     <li><a href="{% url 'logout' %}">Выйти</a></li>
                                 {% else %}
                                     <li><a href="{% url 'login' %}">Войти</a></li>

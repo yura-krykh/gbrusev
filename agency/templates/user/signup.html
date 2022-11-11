@@ -1,12 +1,36 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Sing Up{% endblock %}
+{% block title %}Регестрация{% endblock %}
 
 {% block content %}
-    <h2>Sing up</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sing up</button>
-    </form>
+    <head>
+        <link rel="stylesheet" href="{% static 'style/user/signup.css' %}">
+    </head>
+    <div class="container-signup">
+        <h2>Регестрация</h2>
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    {{field.label_tag}}
+                    <div>{{field}}</div>
+                    {% if field.errors%}
+                        <div class="alert-form">
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    <p>
+                                        {{ error }}
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="button-form">
+                    <button type="submit" class="button type1">Регестрация</button>
+                </div>
+            </form>
+    </div>
 {% endblock %}

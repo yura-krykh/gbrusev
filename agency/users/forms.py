@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import CustomUser
-from django.core.exceptions import ValidationError
+from django.utils.translation import gettext as _
 
 from .models import *
 
@@ -10,10 +10,12 @@ class RegisterUserForm(UserCreationForm):
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
 
+    required_css_class = "field"
+    error_css_class = "error"
+
     class Meta:
         model = CustomUser
-        fields = ('email', 'password1', 'password2')
-
+        fields = ('email', 'first_name', 'last_name', 'password1', 'password2',)
 
 class LoginUserForm(AuthenticationForm):
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))

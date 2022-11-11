@@ -1,6 +1,6 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordChangeDoneView
 from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
@@ -36,6 +36,19 @@ class LoginUser(LoginView):
     #     c_def = self.get_user_context(title="Авторизация")
     #     return dict(list(context.items()) + list(c_def.items()))
 
+class UserDetailView(LoginRequiredMixin, DetailView):
+    model = CustomUser
+    template_name = 'user/profile.html'
+    login_url = 'login'
+
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+
+class ChangePasswordView(LoginRequiredMixin, PasswordChangeView):
+    template_name = 'registration/password_change_form.html'
+    success_url = reverse_lazy('password_change_done')
+
+class ChangePasswordDoneView(LoginRequiredMixin, PasswordChangeDoneView):
+    template_name = 'registration/password_change_done.html'
