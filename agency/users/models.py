@@ -34,8 +34,16 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 class CustomUser(AbstractUser):
+    EMPLOYEE_POSITION = (
+        ('П', 'Пользователь'),
+        ('М', 'Менеджер'),
+        ('А', 'Админ')
+    )
+
     username = None
     email = models.EmailField('Электронная почта', unique=True, default='')
+    worker = models.BooleanField('Сотрудник', default=False)
+    post = models.CharField('Должность сотрудника', max_length=50, choices = EMPLOYEE_POSITION, default='Пользователь')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
