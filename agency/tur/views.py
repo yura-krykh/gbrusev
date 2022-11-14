@@ -1,4 +1,5 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import City, hotel, tour
 
 class HomePageView(ListView):
@@ -18,6 +19,12 @@ class CityDetailView(DetailView):
     model = City
     template_name = 'city\city_detail.html'
 
+class CityCreateView(LoginRequiredMixin, CreateView):
+    model = City
+    template_name = 'city\city_new.html'
+    fields = '__all__' 
+    login_url = 'login'
+
 class HotelListView(ListView):
     model = City
     template_name = 'hotel\hotel.html'
@@ -25,6 +32,12 @@ class HotelListView(ListView):
 class HotelDetailView(DetailView):
     model = hotel
     template_name = 'hotel\hotel_detail.html'
+
+class HotelCreateView(LoginRequiredMixin, CreateView):
+    model = hotel
+    template_name = 'city\city_new.html'
+    fields = ['name', 'body', 'photo', 'cityName']
+    login_url = 'login'
 
 class TourListView(ListView):
     model = tour

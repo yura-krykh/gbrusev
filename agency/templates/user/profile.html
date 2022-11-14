@@ -8,10 +8,23 @@
             <ul>
                 <li><a href="{% url 'password_change' %}">Сменить пароль</a></li>
                 <li><a href="">Купленные туры</a></li>
+                {% if user.post != "Пользователь" %}
+                    <li><a href="{% url 'hotel_new' %}">Добавить отель</a></li>
+                    <li><a href="">Добавить тур</a></li>
+                    <li><a href="{% url 'city_new' %}">Добавить город</a></li>
+                    
+                    {% comment %} <li><a href="">Отредактировать отель</a></li>
+                    <li><a href="">Отредактировать тур</a></li>
+                    <li><a href="">Отредактировать город</a></li>
+
+                    <li><a href="">Удалить отель</a></li>
+                    <li><a href="">Удалить тур</a></li>
+                    <li><a href="">Удалить город</a></li> {% endcomment %}
+                {% endif %}
                 {% if user.is_superuser %}
-                    <li><a href="">Добавить Отель</a></li>
-                    <li><a href="">Добавить Тур</a></li>
-                    <li><a href="">Добавить Город</a></li>
+                    {% comment %} <li><a href="">Добавить сотрудника</a></li>
+                    <li><a href="">Отредактировать сотрудника</a></li>
+                    <li><a href="">Удалить сотрудника</a></li> {% endcomment %}
                 {% endif %}
             </ul>
         </div>

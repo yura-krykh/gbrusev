@@ -3,7 +3,7 @@ from django.urls import reverse
 
 class City(models.Model):
     name = models.CharField(max_length=50)
-    photo = models.ImageField(upload_to='img/city/')
+    photo = models.ImageField(upload_to='img/city/', blank=True, null=False)
     body = models.TextField(max_length=200)
 
     def __str__(self):
