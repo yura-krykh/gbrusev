@@ -7,10 +7,10 @@ from .models import CustomUser
 class CustomUserAdmin(UserAdmin):
     # add_form = CustomUserCreatoinForm
     model = CustomUser
-    list_display = ('email', 'is_staff','first_name','last_name',)
-    list_filter = ('email', 'is_staff',)
+    list_display = ('email', 'is_staff','first_name','last_name', 'worker', 'post',)
+    list_filter = ('email', 'is_staff', 'post', 'worker')
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'first_name','last_name',)}),
+        (None, {'fields': ('email', 'password', 'first_name','last_name', 'worker', 'post', )}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
     )
     add_fieldsets = (
