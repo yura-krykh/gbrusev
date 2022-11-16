@@ -2,10 +2,14 @@
 
 {% block content %}
     <div class="container">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="" type="submit">Save</button>
-        </form>
+        {% if user.post != "Пользователь" %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="" type="submit">Сохранить</button>
+            </form>
+        {% else %}
+            <a href="{% url 'home' %}">На главную</a>
+        {% endif %}
     </div>
 {% endblock %}

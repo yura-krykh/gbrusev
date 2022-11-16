@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel=" stylesheet">
+	<!--Replace with your tailwind.css once created-->
+
+
+	<!--Regular Datatables CSS-->
+	<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+	<!--Responsive Extension Datatables CSS-->
+	<link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="{% static 'style/dataList.css' %}">
+</head>
+<div class="container">
+    <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
+		<table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+			<thead>
+				<tr>
+                    {% for column in table.columns %}
+                        <th>{{  }}</th>
+                    {% endfor %}
+					{% comment %} <th>Название</th>
+					<th>Фото</th>
+					<th>Описание</th> {% endcomment %}
+                    <th>Редактировать</th>
+                    <th>Удалить</th>
+				</tr>
+			</thead>
+			<tbody>
+                {% for object in object_list %}
+                    <tr>
+                        <td>{{ object.name }}</td>
+                        <td><img src="{{ object.photo.url }}" width="300" height="200" alt='{{ object.name }}'/></td>
+                        <td>{{ object.body }}</td>
+                        <td><a href="{% url 'city_edit' object.pk %}">Редактировать</a></td>
+                        <td><a href="{% url 'city_delete' object.pk %}">Удалить</a></td>
+                    </tr>
+                {% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+<body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                    responsive: true,
+                    "language":
+                    {
+                        "sProcessing": "جارٍ التحميل...",
+                        "sLengthMenu": "أظهر _MENU_ مدخلات",
+                        "sZeroRecords": "لم يعثر على أية سجلات",
+                        "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+                        "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
+                        "sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+                        "sInfoPostFix": "",
+                        "sSearch": "ابحث:",
+                        "sUrl": "",
+                        "oPaginate": {
+                            "sFirst": "الأول",
+                            "sPrevious": "السابق",
+                            "sNext": "التالي",
+                            "sLast": "الأخير"
+                        }
+                    }
+                })
+                .columns.adjust()
+                .responsive.recalc();
+        });
+    </script>
+</body>
+{% endblock content %}
