@@ -40,9 +40,15 @@ class CityDeleteView(LoginRequiredMixin, DeleteView):
     login_url = 'login'
 
 
-class DataListView(ListView):
-    # model = City
-    template_name = 'list.html'
+class CityDataListView(ListView):
+    model = City
+    fields = '__all__'
+    template_name = 'city\city_table.html'
+
+class TourDataListView(ListView):
+    model = tour
+    fields = '__all__'
+    template_name = 'tour\\tour_table.html'
 
 class HotelListView(ListView):
     model = City

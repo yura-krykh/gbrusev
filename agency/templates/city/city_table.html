@@ -1,0 +1,25 @@
+{% extends 'list.html' %}
+{% load static %}
+
+{% block table %}
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Фото</th>
+            <th>Описание</th>
+            <th>Редактировать</th>
+            <th>Удалить</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in object_list %}
+            <tr>
+                <td>{{ object.name }}</td>
+                <td><img src="{{ object.photo.url }}" width="300" height="200" alt='{{ object.name }}'/></td>
+                <td>{{ object.body }}</td>
+                <td><a href="{% url 'city_edit' object.pk %}">Редактировать</a></td>
+                <td><a href="{% url 'city_delete' object.pk %}">Удалить</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+{% endblock table %}

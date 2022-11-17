@@ -17,14 +17,18 @@
 <div class="container">
     <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
 		<table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-			<thead>
+            {% block table %}
+            {% endblock table %}
+			{% comment %} <thead>
 				<tr>
-                    {% for column in table.columns %}
-                        <th>{{  }}</th>
+                    {% for field in models_instance %}
+                        <th>{{ field }}</th>
                     {% endfor %}
-					{% comment %} <th>Название</th>
+					<th>Название</th>
 					<th>Фото</th>
-					<th>Описание</th> {% endcomment %}
+					<th>Описание</th>
+                    {% block thead_list %}
+                    {% endblock %}
                     <th>Редактировать</th>
                     <th>Удалить</th>
 				</tr>
@@ -39,7 +43,7 @@
                         <td><a href="{% url 'city_delete' object.pk %}">Удалить</a></td>
                     </tr>
                 {% endfor %}
-			</tbody>
+			</tbody> {% endcomment %}
 		</table>
 	</div>
 </div>

@@ -14,7 +14,7 @@ class City(models.Model):
 
     def get_hotels(self):
         return self.hotel.all()
-
+    
     # def meta(self):
     #     return fields
 
