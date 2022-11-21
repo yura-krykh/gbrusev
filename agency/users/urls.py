@@ -10,5 +10,6 @@ urlpatterns = [
     path('password-change/done/', views.ChangePasswordDoneView.as_view(), name='password_change_done'),
     path('user/new', views.UserCreateView.as_view(), name='user_new'),
     path('user/list', views.UserListView.as_view(), name='user_table'),
+    path('users/delete/<int:pk>/', views.UserDeleteView.as_view(), name='user_delete'),
     path('workers/list', views.WorkersListView.as_view(), name='workers_table'),
 ]

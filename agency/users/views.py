@@ -5,6 +5,7 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
+from django.views.generic.edit import UpdateView, DeleteView
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -78,3 +79,17 @@ class WorkersListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         workers = CustomUser.objects.filter(worker = True)
         return workers
+
+class UserUpdateView(LoginRequiredMixin, UpdateView):
+    model = CustomUser
+    fields = ['email', 'first_name', 'last_name', 'password', 'worker', 'is_superuser', 'post', ]
+    template_name = 'city\city_edit.html'
+    login_url = 'login'
+
+class UserDeleteView(LoginRequiredMixin, DeleteView):
+    model = CustomUser
+    template_name = 'city\city_delete.html'
+    login_url = 'login'
+
+    def get_success_url(self):
+        return reverse_lazy('profile', kwargs={'pk': self.object.pk})

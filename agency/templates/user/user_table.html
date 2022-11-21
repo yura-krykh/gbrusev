@@ -18,7 +18,7 @@
                 <td>{{ object.first_name }}</td>
                 <td>{{ object.last_name }}</td>
                 <td><a href="{% url 'city_edit' object.pk %}">Редактировать</a></td>
-                <td><a href="{% url 'city_delete' object.pk %}">Удалить</a></td>
+                <td><a href="{% url 'user_delete' object.pk %}">Удалить</a></td>
             </tr>
         {% endfor %}
     </tbody>
