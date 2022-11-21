@@ -52,3 +52,29 @@ class ChangePasswordView(LoginRequiredMixin, PasswordChangeView):
 
 class ChangePasswordDoneView(LoginRequiredMixin, PasswordChangeDoneView):
     template_name = 'registration/password_change_done.html'
+
+class UserCreateView(LoginRequiredMixin, CreateView):
+    model = CustomUser
+    template_name = 'city\city_new.html'
+    pk = None
+    fields = ['email', 'first_name', 'last_name', 'password', 'worker', 'is_superuser', 'post', ]
+    login_url = 'login'
+
+    def get_success_url(self) -> str:
+        return reverse_lazy('profile', kwargs={'pk': self.object.pk})
+
+class UserListView(LoginRequiredMixin, ListView):
+    model = CustomUser
+    template_name = 'user\\user_table.html'
+
+    def get_queryset(self):
+        users = CustomUser.objects.filter(post = 'Пользователь')
+        return users
+
+class WorkersListView(LoginRequiredMixin, ListView):
+    model = CustomUser
+    template_name = 'user\workers_table.html'
+
+    def get_queryset(self):
+        workers = CustomUser.objects.filter(worker = True)
+        return workers

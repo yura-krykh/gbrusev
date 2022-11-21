@@ -7,9 +7,7 @@
             <th>Название</th>
             <th>Фото</th>
             <th>Описание</th>
-            <th>Акция</th>
-            <th>Стоимость</th>
-            <th>Отель</th>
+            <th>Город</th>
             <th>Редактировать</th>
             <th>Удалить</th>
         </tr>
@@ -20,13 +18,7 @@
                 <td>{{ object.name }}</td>
                 <td><img src="{{ object.photo.url }}" width="300" height="200" alt='{{ object.name }}'/></td>
                 <td>{{ object.body }}</td>
-                {% if object.event %}
-                    <td>Да</td>
-                {% else %}
-                    <td>Нет</td>
-                {% endif %}
-                <td>{{ object.cost }}</td>
-                <td>{{ object.hotelName }}</td>
+                <td>{{ object.cityName }}</td>
                 <td><a href="{% url 'city_edit' object.pk %}">Редактировать</a></td>
                 <td><a href="{% url 'city_delete' object.pk %}">Удалить</a></td>
             </tr>

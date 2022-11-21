@@ -64,6 +64,11 @@ class HotelCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
     login_url = 'login'
 
+class HotelDataListView(ListView):
+    model = hotel
+    fields = '__all__'
+    template_name = 'hotel\hotel_table.html'
+
 class TourListView(ListView):
     model = tour
     template_name = "tour\\tour.html"

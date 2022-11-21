@@ -16,20 +16,13 @@
                     <hr>
                     <li><a href="{% url 'list_tour' %}">Список туров</a></li>
                     <li><a href="{% url 'list_city' %}">Список городов</a></li>
-                    <hr>
-                    <li><a href="">Отредактировать отель</a></li>
-                    <li><a href="">Отредактировать тур</a></li>
-                    <li><a href="">Отредактировать город</a></li>
-                    <hr>
-                    <li><a href="">Удалить отель</a></li>
-                    <li><a href="">Удалить тур</a></li>
-                    <li><a href="">Удалить город</a></li>
+                    <li><a href="{% url 'list_hotel' %}">Список Отелей</a></li>
                 {% endif %}
                 {% if user.is_superuser %}
                     <hr>
-                    <li><a href="">Добавить сотрудника</a></li>
-                    <li><a href="">Отредактировать сотрудника</a></li>
-                    <li><a href="">Удалить сотрудника</a></li>
+                    <li><a href="{% url 'user_new' %}">Добавить сотрудника</a></li>
+                    <li><a href="{% url 'workers_table' %}">Список Сотрудников</a></li>
+                    <li><a href="{% url 'user_table' %}">Список Пользователей</a></li>
                 {% endif %}
             </ul>
         </div>
