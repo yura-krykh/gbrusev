@@ -3,6 +3,7 @@ from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import City, hotel, tour
 from django.urls import reverse_lazy
+from .forms import *
 
 class HomePageView(ListView):
     model = City
@@ -24,13 +25,18 @@ class CityDetailView(DetailView):
 class CityCreateView(LoginRequiredMixin, CreateView):
     model = City
     template_name = 'city\city_new.html'
-    fields = '__all__'
+    fields = ['name', 'photo', 'body', ]
     login_url = 'login'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 class CityUpdateView(LoginRequiredMixin, UpdateView):
     model = City
     fields = '__all__'
     template_name = 'city\city_edit.html'
+    success_url = reverse_lazy('list_city')
     login_url = 'login'
 
 class CityDeleteView(LoginRequiredMixin, DeleteView):
@@ -38,7 +44,6 @@ class CityDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'city\city_delete.html'
     success_url = reverse_lazy('list_city')
     login_url = 'login'
-
 
 class CityDataListView(ListView):
     model = City
@@ -62,6 +67,20 @@ class HotelCreateView(LoginRequiredMixin, CreateView):
     model = hotel
     template_name = 'city\city_new.html'
     fields = '__all__'
+    success_url = reverse_lazy('list_hotel')
+    login_url = 'login'
+
+class HotelUpdateView(LoginRequiredMixin, UpdateView):
+    model = hotel
+    fields = '__all__'
+    template_name = 'city\city_edit.html'
+    success_url = reverse_lazy('list_hotel')
+    login_url = 'login'
+
+class HotelDeleteView(LoginRequiredMixin, DeleteView):
+    model = hotel
+    template_name = 'city\city_delete.html'
+    success_url = reverse_lazy('list_hotel')
     login_url = 'login'
 
 class HotelDataListView(ListView):
@@ -78,8 +97,7 @@ class TourActionListView(ListView):
     template_name = "tour\\tour.html"
 
     def get_queryset(self):
-        actions = tour.objects.filter(event = True)
-        return actions
+        return tour.objects.filter(event = True)
 
 class TourDetailView(DetailView):
     model = tour
@@ -89,4 +107,17 @@ class TourCreateView(LoginRequiredMixin, CreateView):
     model = tour
     template_name = 'city\city_new.html'
     fields = '__all__'
+    login_url = 'login'
+
+class TourUpdateView(LoginRequiredMixin, UpdateView):
+    model = tour
+    fields = '__all__'
+    template_name = 'city\city_edit.html'
+    success_url = reverse_lazy('list_tour')
+    login_url = 'login'
+
+class TourDeleteView(LoginRequiredMixin, DeleteView):
+    model = tour
+    template_name = 'city\city_delete.html'
+    success_url = reverse_lazy('list_tour')
     login_url = 'login'

@@ -3,7 +3,6 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from . import views
-from .models import City, hotel, tour
 
 urlpatterns = [
     path('', views.HomePageView.as_view(), name='home'),
@@ -13,15 +12,21 @@ urlpatterns = [
     path('city/delete/<int:pk>', views.CityDeleteView.as_view(), name='city_delete'),
     path('city/edit/<int:pk>', views.CityUpdateView.as_view(), name='city_edit'),
     path('city/list/', views.CityDataListView.as_view(), name='list_city'),
+
     path('hotel/', views.HotelListView.as_view(), name='hotel'),
     path('hotel/<int:pk>/', views.HotelDetailView.as_view(), name='hotel_detail'),
-    path("hotel/new/", views.HotelCreateView.as_view(), name="hotel_new"),
-    path('tour/list/', views.TourDataListView.as_view(), name='list_tour'),
+    path('hotel/new/', views.HotelCreateView.as_view(), name='hotel_new'),
+    path('hotel/edit/<int:pk>', views.HotelUpdateView.as_view(), name='hotel_edit'),
+    path('hotel/delete/<int:pk>', views.HotelDeleteView.as_view(), name='hotel_delete'),
     path('hotel/list/', views.HotelDataListView.as_view(), name='list_hotel'),
+
+    path('tour/list/', views.TourDataListView.as_view(), name='list_tour'),
     path('tour/', views.TourListView.as_view(), name='tour'),
     path('tour/action/', views.TourActionListView.as_view(), name='acton'),
     path('tour/<int:pk>/', views.TourDetailView.as_view(), name='tour_detail'),
     path('tour/new', views.TourCreateView.as_view(), name='tour_new'),
+    path('tour/edit/<int:pk>', views.TourUpdateView.as_view(), name='tour_edit'),
+    path('tour/delete/<int:pk>', views.TourDeleteView.as_view(), name='tour_delete'),
 ]
 
 if settings.DEBUG:

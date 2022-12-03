@@ -19,8 +19,8 @@
                 <td><img src="{{ object.photo.url }}" width="300" height="200" alt='{{ object.name }}'/></td>
                 <td>{{ object.body }}</td>
                 <td>{{ object.cityName }}</td>
-                <td><a href="{% url 'city_edit' object.pk %}">Редактировать</a></td>
-                <td><a href="{% url 'city_delete' object.pk %}">Удалить</a></td>
+                <td><a href="{% url 'hotel_edit' object.pk %}">Редактировать</a></td>
+                <td><a href="{% url 'hotel_delete' object.pk %}">Удалить</a></td>
             </tr>
         {% endfor %}
     </tbody>

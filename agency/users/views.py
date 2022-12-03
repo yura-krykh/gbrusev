@@ -61,7 +61,7 @@ class UserCreateView(LoginRequiredMixin, CreateView):
     fields = ['email', 'first_name', 'last_name', 'password', 'worker', 'is_superuser', 'post', ]
     login_url = 'login'
 
-    def get_success_url(self) -> str:
+    def get_success_url(self):
         return reverse_lazy('profile', kwargs={'pk': self.object.pk})
 
 class UserListView(LoginRequiredMixin, ListView):
@@ -69,8 +69,7 @@ class UserListView(LoginRequiredMixin, ListView):
     template_name = 'user\\user_table.html'
 
     def get_queryset(self):
-        users = CustomUser.objects.filter(post = 'Пользователь')
-        return users
+        return CustomUser.objects.filter(worker = False)
 
 class WorkersListView(LoginRequiredMixin, ListView):
     model = CustomUser
@@ -92,4 +91,4 @@ class UserDeleteView(LoginRequiredMixin, DeleteView):
     login_url = 'login'
 
     def get_success_url(self):
-        return reverse_lazy('profile', kwargs={'pk': self.object.pk})
+        return reverse_lazy('profile', kwargs={'pk': self.request.user.pk})

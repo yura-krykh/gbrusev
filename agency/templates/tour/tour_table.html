@@ -27,8 +27,8 @@
                 {% endif %}
                 <td>{{ object.cost }}</td>
                 <td>{{ object.hotelName }}</td>
-                <td><a href="{% url 'city_edit' object.pk %}">Редактировать</a></td>
-                <td><a href="{% url 'city_delete' object.pk %}">Удалить</a></td>
+                <td><a href="{% url 'tour_edit' object.pk %}">Редактировать</a></td>
+                <td><a href="{% url 'tour_delete' object.pk %}">Удалить</a></td>
             </tr>
         {% endfor %}
     </tbody>
