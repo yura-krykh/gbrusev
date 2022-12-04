@@ -54,11 +54,12 @@ class ChangePasswordView(LoginRequiredMixin, PasswordChangeView):
 class ChangePasswordDoneView(LoginRequiredMixin, PasswordChangeDoneView):
     template_name = 'registration/password_change_done.html'
 
-class UserCreateView(LoginRequiredMixin, CreateView):
-    model = CustomUser
+class WorkCreateView(LoginRequiredMixin, CreateView):
+    form_class = CreateWorkForm
+    # model = CustomUser
     template_name = 'city\city_new.html'
-    pk = None
-    fields = ['email', 'first_name', 'last_name', 'password', 'worker', 'is_superuser', 'post', ]
+    # pk = None
+    # fields = ['email', 'first_name', 'last_name', 'password', 'worker', 'is_superuser', 'post', ]
     login_url = 'login'
 
     def get_success_url(self):
