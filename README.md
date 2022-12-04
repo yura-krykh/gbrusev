@@ -1,5 +1,4 @@
-# agency
-Сайт Турагентства на django
+<h1 align="center">Сайт Турагентства на django</h1>
 
 pip install virtualenv /
 virtualenv env /
