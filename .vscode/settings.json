@@ -3,6 +3,8 @@
         "django-html": "html",
     },
     "cSpell.words": [
+        "createsuperuser",
+        "makemigrations",
         "topmenu"
     ]
 }

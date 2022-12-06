@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -121,3 +122,29 @@ class TourDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'city\city_delete.html'
     success_url = reverse_lazy('list_tour')
     login_url = 'login'
+
+class TourBuyView(LoginRequiredMixin, UpdateView):
+    model = tour
+    template_name = 'tour\\buy.html'
+    fields = ['food',]
+    login_url = 'login'
+
+    def form_valid(self, form):
+        # instance = form.save(commit=False)
+        form.instance.purchase = True
+        form.instance.buying = self.request.user
+        return super(TourBuyView, self).form_valid(form)
+
+    # def approve_group(request, pk, form):
+    #     instance = form.save(commit=False)
+    #     instance.purchase = True
+    #     return redirect(request, 'home')
+
+    # def form_valid(self, form):
+    #     form.instance.author = self.request.user
+    #     return super().form_valid(form)
+
+# def TourBuyView(form, pk):
+#     instance = form.save(commit=False)
+#     instance.purchase = True
+#     return redirect('home')

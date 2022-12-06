@@ -12,6 +12,7 @@
             <div class="title">
                 <h2>{{ tour.name }}</h2>
                 <p>{{ tour.body }}</p>
+                <a href="{% url 'tour_buy' tour.pk %}">купить</a>
             </div>
         </article>
     </div>

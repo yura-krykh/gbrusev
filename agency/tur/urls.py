@@ -27,6 +27,7 @@ urlpatterns = [
     path('tour/new', views.TourCreateView.as_view(), name='tour_new'),
     path('tour/edit/<int:pk>', views.TourUpdateView.as_view(), name='tour_edit'),
     path('tour/delete/<int:pk>', views.TourDeleteView.as_view(), name='tour_delete'),
+    path('tour/<int:pk>/buy', views.TourBuyView.as_view(), name='tour_buy')
 ]
 
 if settings.DEBUG:

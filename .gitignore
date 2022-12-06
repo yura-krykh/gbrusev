@@ -3,4 +3,4 @@ __pycache__
 .vscode
 *.sqlite3
 migrations
-media/img
+agency/media/img/**/

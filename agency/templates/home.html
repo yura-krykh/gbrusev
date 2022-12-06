@@ -9,8 +9,8 @@
     <article>
         <div class="container">
             <h2>Города</h2>
-            {% for city in city_list %}
-                <a href="{% url 'city_detail' city.pk %}">{{ city.name }}</a>
+            {% for item in city %}
+                <a href="{% url 'city_detail' item.pk %}">{{ item.name }}</a>
             {% endfor %}
             <h2>Отели</h2>
             {% for item in hotel %}

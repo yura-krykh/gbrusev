@@ -9,5 +9,6 @@
     <li>pip install Pillow</li>
     <li>python manage.py makemigrations</li>
     <li>python manage.py migrate</li>
+    <li>python manage.py createsuperuser</li>
     <li>py manage.py runserver</li>
 </ol>

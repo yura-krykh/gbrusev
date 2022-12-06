@@ -1,6 +1,6 @@
 from django import forms
 from django.conf import settings
-from .models import City
+from .models import City, tour
 User = settings.AUTH_USER_MODEL
 
 class NewCityCreationForm(forms.ModelForm):
@@ -14,3 +14,8 @@ class NewCityCreationForm(forms.ModelForm):
     class Meta:
         model = City
         fields = ('name', 'photo', 'body')
+
+# class UpdateForm(forms.ModelForm):
+#     class Meta:
+#         model = tour
+#         fields = '__all__'
