@@ -4,6 +4,8 @@
 <head>
     <title>{% block title %}РОМАТУР{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'style/base.css'%}">
+    {% block style %}
+    {% endblock style %}
     <meta charset="utf-8" />
 </head>
 <body>
@@ -71,5 +73,8 @@
             </div>
         </div>
     </footer>
+    {% block script %}
+
+    {% endblock script %}
 </body>
 </html>
