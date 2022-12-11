@@ -7,7 +7,7 @@
         <div>
             <ul>
                 <li><a href="{% url 'password_change' %}">Сменить пароль</a></li>
-                <li><a href="">Купленные туры</a></li>
+                <li><a href="{% url 'tour_purchased' %}">Купленные туры</a></li>
                 {% if user.post != "Пользователь" %}
                     <hr>
                     <li><a href="{% url 'hotel_new' %}">Добавить отель</a></li>

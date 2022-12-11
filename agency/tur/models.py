@@ -95,3 +95,6 @@ class tour(models.Model):
 
     def __str__(self):
         return self.name
+
+# class reviews(models.Model):
+#     text = models.TextField(max_length=200)

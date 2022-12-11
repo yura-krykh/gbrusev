@@ -4,7 +4,10 @@ from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import City, hotel, tour
 from django.urls import reverse_lazy
+from django.conf import settings
 from .forms import *
+
+user = settings.AUTH_USER_MODEL
 
 class HomePageView(ListView):
     model = City
@@ -98,7 +101,9 @@ class TourActionListView(ListView):
     template_name = "tour\\tour.html"
 
     def get_queryset(self):
-        return tour.objects.filter(event = True)
+        action = tour.objects.filter(event = True)
+        action = tour.objects.filter(purchase = False)
+        return action
 
 class TourDetailView(DetailView):
     model = tour
@@ -131,6 +136,7 @@ class TourBuyView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         # instance = form.save(commit=False)
+        form.instance.action = False
         form.instance.purchase = True
         form.instance.buying = self.request.user
         return super(TourBuyView, self).form_valid(form)
@@ -148,3 +154,18 @@ class TourBuyView(LoginRequiredMixin, UpdateView):
 #     instance = form.save(commit=False)
 #     instance.purchase = True
 #     return redirect('home')
+
+class TourBuyListView(ListView):
+    model = tour
+    fields = '__all__'
+    template_name = 'tour\\tour_table.html'
+
+    def get_queryset(self):
+        buying = tour.objects.filter(purchase = True)
+        buying = tour.objects.filter(buying = self.request.user)
+        return buying
+
+    # def get_queryset(self):
+    #     action = tour.objects.filter(event = True)
+    #     action = tour.objects.filter(purchase = False)
+    #     return action
