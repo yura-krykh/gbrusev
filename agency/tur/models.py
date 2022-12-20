@@ -7,7 +7,7 @@ from users.models import CustomUser
 # User=get_user_model()
 
 class food(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -18,7 +18,7 @@ class food(models.Model):
     )
 
 class City(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Название')
+    name = models.CharField(max_length=50, verbose_name='Название', unique=True)
     photo = models.ImageField(upload_to='img/city/', verbose_name='Фото')
     body = models.TextField(max_length=200, verbose_name='Описание')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
@@ -43,7 +43,7 @@ class City(models.Model):
 
 
 class hotel(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     photo = models.ImageField(upload_to='img/hotel/')
     body = models.TextField(max_length=200)
     created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
@@ -67,7 +67,7 @@ class hotel(models.Model):
         return self.name
 
 class tour(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     body = models.TextField(max_length=200)
     event = models.BooleanField(default=False)
     cost = models.DecimalField(max_digits=7, decimal_places=2)
