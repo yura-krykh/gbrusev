@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import City, hotel, tour
+from .models import City, hotel, tour, food
 from django.urls import reverse_lazy
 from django.conf import settings
 from .forms import *
@@ -70,9 +70,13 @@ class HotelDetailView(DetailView):
 class HotelCreateView(LoginRequiredMixin, CreateView):
     model = hotel
     template_name = 'city\city_new.html'
-    fields = '__all__'
+    fields = ['name', 'photo', 'body', 'cityName', ]
     success_url = reverse_lazy('list_hotel')
     login_url = 'login'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(HotelCreateView, self).form_valid(form)
 
 class HotelUpdateView(LoginRequiredMixin, UpdateView):
     model = hotel
@@ -112,8 +116,12 @@ class TourDetailView(DetailView):
 class TourCreateView(LoginRequiredMixin, CreateView):
     model = tour
     template_name = 'city\city_new.html'
-    fields = '__all__'
+    fields = ['name', 'body', 'event', 'cost', 'hotelName', ]
     login_url = 'login'
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(TourCreateView, self).form_valid(form)
 
 class TourUpdateView(LoginRequiredMixin, UpdateView):
     model = tour
@@ -131,7 +139,7 @@ class TourDeleteView(LoginRequiredMixin, DeleteView):
 class TourBuyView(LoginRequiredMixin, UpdateView):
     model = tour
     template_name = 'tour\\buy.html'
-    fields = ['food',]
+    fields = ['foodName',]
     login_url = 'login'
 
     def form_valid(self, form):
@@ -169,3 +177,26 @@ class TourBuyListView(ListView):
     #     action = tour.objects.filter(event = True)
     #     action = tour.objects.filter(purchase = False)
     #     return action
+
+class FoodCreateVies(LoginRequiredMixin, CreateView):
+    model = food
+    template_name = 'city\city_new.html'
+    fields = ('name', )
+    success_url = reverse_lazy('list_food')
+    login_url = 'login'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(FoodCreateVies, self).form_valid(form)
+
+
+class FoodTableView(ListView):
+    model = food
+    fields = '__all__'
+    template_name = 'food\\food_table.html'
+
+class FoodDeleteView(LoginRequiredMixin, DeleteView):
+    model = tour
+    template_name = 'city\city_delete.html'
+    success_url = reverse_lazy('list_food')
+    login_url = 'login'

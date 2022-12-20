@@ -1,0 +1,27 @@
+{% extends 'list.html' %}
+{% load static %}
+
+{% block table %}
+    <thead>
+        <tr>
+            <th>Название</th>
+            {% if user.is_superuser %}
+                <th>Дата создания</th>
+                <th>Автор</th>
+                <th>Удалить</th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in object_list %}
+            <tr>
+                <td>{{ object.name }}</td>
+                {% if user.is_superuser %}
+                    <td>{{ object.created }}</td>
+                    <td>{{ object.author }}</td>
+                    <td><a href="{% url 'food_delete' object.pk %}">Удалить</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </tbody>
+{% endblock table %}

@@ -12,7 +12,7 @@
             {% for tour in tour_list %}
                 <div>
                     <a href="{% url 'tour_detail' tour.pk %}">
-                        <figure class="figure-city"><img src="{{ tour.photo.url }}" width="300" height="200" alt='{{ tour.name }}'/></figure>
+                        <figure class="figure-city"><img src="{{ tour.hotelName.photo.url }}" width="300" height="200" alt='{{ tour.name }}'/></figure>
                         <span>{{ tour.name }}</span>
                     </a>
                 </div>

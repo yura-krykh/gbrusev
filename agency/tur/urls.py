@@ -28,7 +28,11 @@ urlpatterns = [
     path('tour/edit/<int:pk>', views.TourUpdateView.as_view(), name='tour_edit'),
     path('tour/delete/<int:pk>', views.TourDeleteView.as_view(), name='tour_delete'),
     path('tour/<int:pk>/buy', views.TourBuyView.as_view(), name='tour_buy'),
-    path('tour/purchased', views.TourBuyListView.as_view(), name='tour_purchased')
+    path('tour/purchased', views.TourBuyListView.as_view(), name='tour_purchased'),
+
+    path("food/add", views.FoodCreateVies.as_view(), name="food_new"),
+    path("food/list", views.FoodTableView.as_view(), name="list_food"),
+    path("food/delete/<int:pk>", views.FoodDeleteView.as_view(), name="food_delete"),
 ]
 
 if settings.DEBUG:

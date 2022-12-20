@@ -18,7 +18,7 @@
         {% for object in object_list %}
             <tr>
                 <td>{{ object.name }}</td>
-                <td><img src="{{ object.photo.url }}" width="300" height="200" alt='{{ object.name }}'/></td>
+                <td><img src="{{ object.hotelName.photo.url }}" width="300" height="200" alt='{{ object.name }}'/></td>
                 <td>{{ object.body }}</td>
                 {% if object.event %}
                     <td>Да</td>

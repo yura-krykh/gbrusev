@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block style %}
+    <link rel="stylesheet" href="{% static 'owl/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'owl/owl.theme.default.min.css' %}">
+{% endblock style %}
+
 {% block content %}
     <div class="container">
         <h1>Турагенство РомаТур</h1>
@@ -10,12 +15,32 @@
         <div class="container">
             <h2>Города</h2>
             {% for item in city %}
-                <a href="{% url 'city_detail' item.pk %}">{{ item.name }}</a>
+            <div class="owl-carousel">
+                <div>
+                    <img src="{{ item.photo.url }}" alt="" width="300" height="300">
+                    <a href="{% url 'city_detail' item.pk %}">{{ item.name }}</a>
+                </div>
+            </div>
             {% endfor %}
             <h2>Отели</h2>
             {% for item in hotel %}
-                <a href="{% url 'hotel_detail' item.pk %}">{{ item.name }}</a>
+            <div class="owl-carousel">
+                <div>
+                    <img src="{{ item.photo.url }}" alt="" width="300" height="300">
+                    <a href="{% url 'hotel_detail' item.pk %}">{{ item.name }}</a>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </article>
 {% endblock content %}
+
+{% block script %}
+    <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'owl/owl.carousel.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel();
+          });
+    </script>
+{% endblock script %}

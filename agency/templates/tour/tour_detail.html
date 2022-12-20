@@ -9,7 +9,7 @@
     <div class="container">
         <p><a href="{% url 'home' %}">На главную</a>/<a href="{% url 'tour' %}">Туры</a>/{{ tour.name }}</p>
         <article>
-            <img src="{{ tour.photo.url }}" alt="{{ tour.name }}">
+            <img src="{{ tour.hotelName.photo.url }}" alt="{{ tour.hotelName.name }}">
             <div class="title">
                 <h2>{{ tour.name }}</h2>
                 <p>{{ tour.body }}</p>
