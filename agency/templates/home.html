@@ -13,24 +13,24 @@
     </div>
     <article>
         <div class="container">
-            <h2>Города</h2>
-            {% for item in city %}
+            {% comment %} <h2>Города</h2>
             <div class="owl-carousel">
-                <div>
-                    <img src="{{ item.photo.url }}" alt="" width="300" height="300">
-                    <a href="{% url 'city_detail' item.pk %}">{{ item.name }}</a>
-                </div>
-            </div>
-            {% endfor %}
+                {% for item in city %}
+                    <div>
+                        <img src="{{ item.photo.url }}" alt="" width="300" height="300">
+                        <a href="{% url 'city_detail' item.pk %}">{{ item.name }}</a>
+                    </div>
+                {% endfor %}
+            </div> {% endcomment %}
             <h2>Отели</h2>
-            {% for item in hotel %}
             <div class="owl-carousel">
-                <div>
-                    <img src="{{ item.photo.url }}" alt="" width="300" height="300">
-                    <a href="{% url 'hotel_detail' item.pk %}">{{ item.name }}</a>
-                </div>
+                {% for item in hotel %}
+                    <div>
+                        <img src="{{ item.photo.url }}" alt="" width="300" height="300">
+                        <a href="{% url 'hotel_detail' item.pk %}">{{ item.name }}</a>
+                    </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </article>
 {% endblock content %}
