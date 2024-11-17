@@ -11,8 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import *
 from .models import *
-
-
+#####
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'user/signup.html'
