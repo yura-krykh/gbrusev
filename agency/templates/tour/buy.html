@@ -6,8 +6,8 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <p>Вы точно хотите купить {{ object.name }} за {{ object.cost }}?</p>
-            <button>Купить</button>
+            <p>Ви точно хочете купити {{ object.name }} за {{ object.cost }}?</p>
+            <button>Купити</button>
         </form>
     </div>
 {% endblock %}

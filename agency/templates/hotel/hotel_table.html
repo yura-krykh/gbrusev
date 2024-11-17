@@ -4,12 +4,12 @@
 {% block table %}
     <thead>
         <tr>
-            <th>Название</th>
+            <th>Назва</th>
             <th>Фото</th>
-            <th>Описание</th>
-            <th>Город</th>
-            <th>Редактировать</th>
-            <th>Удалить</th>
+            <th>Опис</th>
+            <th>Місто</th>
+            <th>Редагувати</th>
+            <th>Видалити</th>
         </tr>
     </thead>
     <tbody>
@@ -19,8 +19,8 @@
                 <td><img src="{{ object.photo.url }}" width="300" height="200" alt='{{ object.name }}'/></td>
                 <td>{{ object.body }}</td>
                 <td>{{ object.cityName }}</td>
-                <td><a href="{% url 'hotel_edit' object.pk %}">Редактировать</a></td>
-                <td><a href="{% url 'hotel_delete' object.pk %}">Удалить</a></td>
+                <td><a href="{% url 'hotel_edit' object.pk %}">Редагувати</a></td>
+                <td><a href="{% url 'hotel_delete' object.pk %}">Видалити</a></td>
             </tr>
         {% endfor %}
     </tbody>

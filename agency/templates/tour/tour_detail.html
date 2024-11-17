@@ -7,13 +7,13 @@
 
 {% block content %}
     <div class="container">
-        <p><a href="{% url 'home' %}">На главную</a>/<a href="{% url 'tour' %}">Туры</a>/{{ tour.name }}</p>
+        <p><a href="{% url 'home' %}">На головну</a>/<a href="{% url 'tour' %}">Тури</a>/{{ tour.name }}</p>
         <article>
             <img src="{{ tour.hotelName.photo.url }}" alt="{{ tour.hotelName.name }}">
             <div class="title">
                 <h2>{{ tour.name }}</h2>
                 <p>{{ tour.body }}</p>
-                <a href="{% url 'tour_buy' tour.pk %}">купить</a>
+                <a href="{% url 'tour_buy' tour.pk %}">купити</a>
             </div>
         </article>
     </div>

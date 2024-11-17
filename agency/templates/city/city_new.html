@@ -2,14 +2,14 @@
 
 {% block content %}
     <div class="container">
-        {% if user.post != "Пользователь" %}
+        {% if user.post != "Користувач" %}
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button class="" type="submit">Сохранить</button>
+                <button class="" type="submit">Зберегти</button>
             </form>
         {% else %}
-            <a href="{% url 'home' %}">На главную</a>
+            <a href="{% url 'home' %}">На головну</a>
         {% endif %}
     </div>
 {% endblock %}

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>{% block title %}РОМАТУР{% endblock title %}</title>
+    <title>{% block title %}Тур{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'style/base.css'%}">
     {% block style %}
     {% endblock style %}
@@ -17,19 +17,19 @@
                 </div>
                 <nav>
                     <ul class="topmenu">
-                        <li><a href="{% url 'hotel' %}">Отели</a></li>
-                        <li><a href="{% url 'acton' %}">Акции</a></li>
-                        <li><a href="{% url 'tour' %}">Туры</a></li>
-                        <li><a href="{% url 'city' %}">Города</a></li>
+                        <li><a href="{% url 'hotel' %}">Готели</a></li>
+                        <li><a href="{% url 'acton' %}">Акції</a></li>
+                        <li><a href="{% url 'tour' %}">Тури</a></li>
+                        <li><a href="{% url 'city' %}">Міста</a></li>
                         <li class="drop">
                             <img width="45" height="45" src="{% static 'img/account_avatar_face_man_people_profile_user_icon.svg' %}" alt="Пользователь">
                             <ul class="submenu">
                                 {% if user.is_authenticated %}
-                                    <li><a href="{% url 'profile' user.pk %}">Профиль</a></li>
-                                    <li><a href="{% url 'logout' %}">Выйти</a></li>
+                                    <li><a href="{% url 'profile' user.pk %}">Профіль</a></li>
+                                    <li><a href="{% url 'logout' %}">Вийти</a></li>
                                 {% else %}
-                                    <li><a href="{% url 'login' %}">Войти</a></li>
-                                    <li><a href="{% url 'signup' %}">Регистрация</a></li>
+                                    <li><a href="{% url 'login' %}">Ввійти</a></li>
+                                    <li><a href="{% url 'signup' %}">Реєстрація</a></li>
                                 {% endif %}
                             </ul>
                         </li>
@@ -51,24 +51,24 @@
                     <div >
                         <p>
                             <b>Телефон:</b>
-                            <a href="tel:+79326134383">+ 7 (932) 613 43 83</a>
+                            <a href="tel:+00000000000">+00000000000</a>
                         </p>
                         <p>
                             <b>Почта:</b>
-                            <a href="mailto:rss00@yandex.ru">rss00@yandex.ru</a>
+                            <a href="mailto:rss00@yandex.ru">Fizamt@Fizmat.ua</a>
                         </p>
                         <p>
-                            <b>Адрес:</b>
-                            620075 г. Екатеринбург ул.Белинского, 34 оф.203
+                            <b>Адреса:</b>
+                            100500 м. Петрики Вул.Перемоги, 1
                         </p>
                     </div>
                     <div>
                         <img src="{% static 'img/logo/logo.svg' %}" alt="" width="90" height="90">
-                        <big>Наша компания оказывает услуги по оформлению туров по всей России с 2003 года. За это время мы помогли оформить более 100000 виз.</big>
+                        <big>Наша компания ////</big>
                     </div>
                 </div>
                 <div class="company">
-                    <p>Компания «РОМАТУР» &copy; 2003 - 2022 г.</p>
+                    <p>Компания «Джанго тур» &copy; 2004р - </p>
                 </div>
             </div>
         </div>

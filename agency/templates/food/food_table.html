@@ -4,11 +4,11 @@
 {% block table %}
     <thead>
         <tr>
-            <th>Название</th>
+            <th>Назва</th>
             {% if user.is_superuser %}
-                <th>Дата создания</th>
+                <th>Дата створення</th>
                 <th>Автор</th>
-                <th>Удалить</th>
+                <th>Видалити</th>
             {% endif %}
         </tr>
     </thead>
@@ -19,7 +19,7 @@
                 {% if user.is_superuser %}
                     <td>{{ object.created }}</td>
                     <td>{{ object.author }}</td>
-                    <td><a href="{% url 'food_delete' object.pk %}">Удалить</a></td>
+                    <td><a href="{% url 'food_delete' object.pk %}">Видалити</a></td>
                 {% endif %}
             </tr>
         {% endfor %}

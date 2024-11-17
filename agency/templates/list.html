@@ -24,13 +24,13 @@
                     {% for field in models_instance %}
                         <th>{{ field }}</th>
                     {% endfor %}
-					<th>Название</th>
+					<th>Назва</th>
 					<th>Фото</th>
-					<th>Описание</th>
+					<th>Опис</th>
                     {% block thead_list %}
                     {% endblock %}
-                    <th>Редактировать</th>
-                    <th>Удалить</th>
+                    <th>Редагувати</th>
+                    <th>Видалити</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -39,8 +39,8 @@
                         <td>{{ object.name }}</td>
                         <td><img src="{{ object.photo.url }}" width="300" height="200" alt='{{ object.name }}'/></td>
                         <td>{{ object.body }}</td>
-                        <td><a href="{% url 'city_edit' object.pk %}">Редактировать</a></td>
-                        <td><a href="{% url 'city_delete' object.pk %}">Удалить</a></td>
+                        <td><a href="{% url 'city_edit' object.pk %}">Редагувати</a></td>
+                        <td><a href="{% url 'city_delete' object.pk %}">Видалити</a></td>
                     </tr>
                 {% endfor %}
 			</tbody> {% endcomment %}

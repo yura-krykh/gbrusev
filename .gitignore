@@ -1,6 +1,0 @@
-/env
-__pycache__
-.vscode
-*.sqlite3
-migrations
-agency/media/img/**/

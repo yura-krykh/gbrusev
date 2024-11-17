@@ -4,9 +4,9 @@ from .models import City, tour
 User = settings.AUTH_USER_MODEL
 
 class NewCityCreationForm(forms.ModelForm):
-    name = forms.CharField(label='Название')
-    photo = forms.ImageField(label='Фотография')
-    body = forms.CharField(label='Описание', widget=forms.Textarea())
+    name = forms.CharField(label='Назва')
+    photo = forms.ImageField(label='Фотографія')
+    body = forms.CharField(label='Опис', widget=forms.Textarea())
 
     # required_css_class = "field"
     # error_css_class = "error"

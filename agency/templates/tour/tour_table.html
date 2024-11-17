@@ -4,14 +4,14 @@
 {% block table %}
     <thead>
         <tr>
-            <th>Название</th>
+            <th>Назва</th>
             <th>Фото</th>
-            <th>Описание</th>
-            <th>Акция</th>
-            <th>Стоимость</th>
-            <th>Отель</th>
-            <th>Редактировать</th>
-            <th>Удалить</th>
+            <th>Опис</th>
+            <th>Акція</th>
+            <th>Ціна</th>
+            <th>Готель</th>
+            <th>Редагувати</th>
+            <th>Видалити</th>
         </tr>
     </thead>
     <tbody>
@@ -21,14 +21,14 @@
                 <td><img src="{{ object.hotelName.photo.url }}" width="300" height="200" alt='{{ object.name }}'/></td>
                 <td>{{ object.body }}</td>
                 {% if object.event %}
-                    <td>Да</td>
+                    <td>Так</td>
                 {% else %}
-                    <td>Нет</td>
+                    <td>Ні</td>
                 {% endif %}
                 <td>{{ object.cost }}</td>
                 <td>{{ object.hotelName }}</td>
-                <td><a href="{% url 'tour_edit' object.pk %}">Редактировать</a></td>
-                <td><a href="{% url 'tour_delete' object.pk %}">Удалить</a></td>
+                <td><a href="{% url 'tour_edit' object.pk %}">Редагувати</a></td>
+                <td><a href="{% url 'tour_delete' object.pk %}">Видалити</a></td>
             </tr>
         {% endfor %}
     </tbody>

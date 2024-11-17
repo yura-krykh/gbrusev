@@ -8,7 +8,7 @@ from users.models import CustomUser
 
 class food(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлений')
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -18,10 +18,10 @@ class food(models.Model):
     )
 
 class City(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Название', unique=True)
+    name = models.CharField(max_length=50, verbose_name='Назва', unique=True)
     photo = models.ImageField(upload_to='img/city/', verbose_name='Фото')
-    body = models.TextField(max_length=200, verbose_name='Описание')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
+    body = models.TextField(max_length=200, verbose_name='Опис')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлений')
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -46,7 +46,7 @@ class hotel(models.Model):
     name = models.CharField(max_length=50, unique=True)
     photo = models.ImageField(upload_to='img/hotel/')
     body = models.TextField(max_length=200)
-    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлений')
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -56,7 +56,7 @@ class hotel(models.Model):
     cityName = models.ForeignKey(
         City,
         on_delete=models.CASCADE,
-        verbose_name='Город',
+        verbose_name='Місто',
         related_name="hotel",
     )
 
@@ -71,7 +71,7 @@ class tour(models.Model):
     body = models.TextField(max_length=200)
     event = models.BooleanField(default=False)
     cost = models.DecimalField(max_digits=7, decimal_places=2)
-    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлений')
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -83,7 +83,7 @@ class tour(models.Model):
     buying = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        verbose_name='Покупатель',
+        verbose_name='Покупець',
         related_name="buy_user",
         blank=True,
         null=True,
@@ -96,7 +96,7 @@ class tour(models.Model):
     foodName = models.ForeignKey(
         food,
         on_delete=models.CASCADE,
-        verbose_name='Еда в самолёте',
+        verbose_name='Їжа в літаку',
         related_name="food_user",
         null=True,
     )

@@ -4,11 +4,11 @@
 {% block table %}
     <thead>
         <tr>
-            <th>Почта</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Редактировать</th>
-            <th>Удалить</th>
+            <th>Пошта</th>
+            <th>ім'я</th>
+            <th>Прізвище</th>
+            <th>Редагувати</th>
+            <th>Видалити</th>
         </tr>
     </thead>
     <tbody>
@@ -17,8 +17,8 @@
                 <td>{{ object.email }}</td>
                 <td>{{ object.first_name }}</td>
                 <td>{{ object.last_name }}</td>
-                <td><a href="{% url 'city_edit' object.pk %}">Редактировать</a></td>
-                <td><a href="{% url 'user_delete' object.pk %}">Удалить</a></td>
+                <td><a href="{% url 'city_edit' object.pk %}">Редагувати</a></td>
+                <td><a href="{% url 'user_delete' object.pk %}">Видалити</a></td>
             </tr>
         {% endfor %}
     </tbody>
